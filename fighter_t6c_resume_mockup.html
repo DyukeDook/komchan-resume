@@ -1,0 +1,1652 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เรืออากาศตรีคมชาญ จันทชาติ | T-6C Resume Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070b0a;
+      --bg-2: #0d1512;
+      --panel: rgba(12, 20, 17, 0.86);
+      --panel-solid: #111b17;
+      --line: rgba(155, 255, 218, 0.2);
+      --ink: #f6f3e7;
+      --muted: #aeb7ad;
+      --soft: #d7dece;
+      --olive: #637451;
+      --olive-2: #94a66f;
+      --orange: #ff6a1a;
+      --orange-2: #ffb03a;
+      --cyan: #45e6ff;
+      --red: #ff3157;
+      --shadow: rgba(0, 0, 0, 0.45);
+      --radius: 8px;
+      --tilt-x: 0deg;
+      --tilt-y: 0deg;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Sans Thai", "Inter", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 14% 12%, rgba(255, 106, 26, 0.18), transparent 24rem),
+        radial-gradient(circle at 86% 5%, rgba(69, 230, 255, 0.14), transparent 21rem),
+        linear-gradient(135deg, #040604 0%, #0a100f 48%, #12130f 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.024) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 74%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.035) 0,
+        rgba(255,255,255,0.035) 1px,
+        transparent 3px,
+        transparent 8px
+      );
+      opacity: 0.12;
+      mix-blend-mode: screen;
+    }
+
+    button,
+    label {
+      font: inherit;
+    }
+
+    .control-dock {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      padding: 14px;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(180deg, rgba(5, 8, 7, 0.78), rgba(5, 8, 7, 0));
+    }
+
+    .control-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      background: rgba(10, 15, 13, 0.74);
+      box-shadow: 0 16px 40px var(--shadow);
+    }
+
+    .icon-button,
+    .upload-button {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 9px 12px;
+      border: 1px solid rgba(69, 230, 255, 0.25);
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: linear-gradient(180deg, rgba(69, 230, 255, 0.12), rgba(255, 255, 255, 0.045));
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .icon-button:hover,
+    .upload-button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 176, 58, 0.65);
+      background: linear-gradient(180deg, rgba(255, 106, 26, 0.22), rgba(255, 255, 255, 0.065));
+    }
+
+    .icon-button svg,
+    .upload-button svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.2;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .page-wrap {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 12px auto 52px;
+      perspective: 1600px;
+    }
+
+    .resume-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(118deg, rgba(255, 106, 26, 0.12), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.035), transparent 26%),
+        linear-gradient(145deg, #0a1110 0%, #111915 46%, #10130d 100%);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.5);
+      transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+      transition: transform 140ms ease-out;
+    }
+
+    .resume-shell::before {
+      content: "";
+      position: absolute;
+      inset: -30% -8% auto auto;
+      width: 560px;
+      height: 560px;
+      border: 1px solid rgba(69, 230, 255, 0.18);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, transparent 0 22%, rgba(69, 230, 255, 0.07) 22.4% 22.7%, transparent 23% 100%),
+        repeating-conic-gradient(from 12deg, rgba(69,230,255,0.18) 0deg 2deg, transparent 2deg 12deg);
+      opacity: 0.55;
+      animation: radarSpin 16s linear infinite;
+    }
+
+    .resume-shell::after {
+      content: "T-6C";
+      position: absolute;
+      right: -24px;
+      top: 152px;
+      color: rgba(255, 255, 255, 0.035);
+      font-family: "Inter", sans-serif;
+      font-size: clamp(7rem, 16vw, 13rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 0.8;
+      pointer-events: none;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 390px 1fr;
+      min-height: 430px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .photo-bay {
+      position: relative;
+      padding: 34px;
+      background:
+        linear-gradient(155deg, rgba(255, 106, 26, 0.25), transparent 44%),
+        linear-gradient(180deg, rgba(21, 29, 22, 0.96), rgba(10, 15, 13, 0.92));
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .photo-bay::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(69, 230, 255, 0.22);
+      clip-path: polygon(0 0, 62% 0, 62% 1px, 100% 1px, 100% 100%, 0 100%);
+      pointer-events: none;
+    }
+
+    .classification {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      color: var(--orange-2);
+      font-family: "Inter", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .classification::before {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 8px;
+      background: repeating-linear-gradient(90deg, var(--orange) 0 8px, transparent 8px 12px);
+    }
+
+    .portrait-frame {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 32%),
+        linear-gradient(180deg, #1f2b24, #080d0b);
+      box-shadow: inset 0 0 0 1px rgba(69, 230, 255, 0.1), 0 24px 52px rgba(0, 0, 0, 0.4);
+      clip-path: polygon(0 0, 88% 0, 100% 12%, 100% 100%, 12% 100%, 0 88%);
+    }
+
+    .portrait-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.05) saturate(0.95);
+    }
+
+    .portrait-frame img.is-hidden {
+      display: none;
+    }
+
+    .photo-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(69, 230, 255, 0.09), transparent),
+        radial-gradient(circle at 50% 30%, rgba(255, 106, 26, 0.18), transparent 34%),
+        #101814;
+    }
+
+    .fallback-mark {
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+      color: var(--soft);
+    }
+
+    .fallback-mark strong {
+      display: grid;
+      place-items: center;
+      width: 112px;
+      height: 112px;
+      border: 2px solid rgba(69, 230, 255, 0.36);
+      border-radius: 50%;
+      color: var(--orange-2);
+      font-family: "Inter", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      box-shadow: 0 0 42px rgba(69, 230, 255, 0.12);
+    }
+
+    .fallback-mark span {
+      max-width: 18ch;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .frame-hud {
+      position: absolute;
+      inset: 12px;
+      pointer-events: none;
+      border: 1px solid rgba(69, 230, 255, 0.22);
+      opacity: 0.8;
+    }
+
+    .frame-hud::before,
+    .frame-hud::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 1px;
+      background: var(--orange);
+      box-shadow: 0 0 16px rgba(255, 106, 26, 0.62);
+    }
+
+    .frame-hud::before {
+      top: 28%;
+      left: 0;
+    }
+
+    .frame-hud::after {
+      right: 0;
+      bottom: 24%;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .stat {
+      min-height: 72px;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .stat b {
+      display: block;
+      color: var(--ink);
+      font-family: "Inter", sans-serif;
+      font-size: 1.22rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      position: relative;
+      padding: 44px 46px 36px;
+    }
+
+    .top-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 38px;
+    }
+
+    .mission-id,
+    .status-chip {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--soft);
+      font-family: "Inter", sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 18px var(--cyan);
+    }
+
+    .rank {
+      color: var(--orange-2);
+      font-size: clamp(1.08rem, 2.2vw, 1.35rem);
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      position: relative;
+      max-width: 12ch;
+      margin: 0;
+      font-size: clamp(3.8rem, 9vw, 7.45rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+
+    h1 .latin {
+      display: block;
+      margin-top: 16px;
+      color: rgba(246, 243, 231, 0.72);
+      font-family: "Inter", sans-serif;
+      font-size: clamp(0.92rem, 1.7vw, 1.25rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+
+    .glitch {
+      position: relative;
+      display: inline-block;
+      text-shadow: 2px 0 0 rgba(255, 49, 87, 0.55), -2px 0 0 rgba(69, 230, 255, 0.38);
+      animation: glitchPulse 3.8s steps(2, jump-none) infinite;
+    }
+
+    .role-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid rgba(69, 230, 255, 0.24);
+      border-radius: var(--radius);
+      color: var(--soft);
+      background: rgba(69, 230, 255, 0.06);
+      font-size: 0.86rem;
+      font-weight: 800;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .pill.hot {
+      border-color: rgba(255, 106, 26, 0.45);
+      color: #ffe4ca;
+      background: rgba(255, 106, 26, 0.14);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .quote-card,
+    .aircraft-card {
+      position: relative;
+      min-height: 175px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .quote-card::before,
+    .aircraft-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(var(--orange), var(--cyan));
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--cyan);
+      font-family: "Inter", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .quote-card p {
+      margin: 0;
+      color: var(--soft);
+      font-size: 1.02rem;
+      font-weight: 500;
+      line-height: 1.65;
+    }
+
+    .aircraft-card {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      min-height: 240px;
+      padding: 0;
+    }
+
+    .aircraft-card::before {
+      display: none;
+    }
+
+    .aircraft-memory-shot {
+      position: relative;
+      min-height: 240px;
+      overflow: hidden;
+      background: #0d1414;
+    }
+
+    .aircraft-memory-shot + .aircraft-memory-shot {
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .aircraft-memory-shot img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      object-fit: cover;
+      filter: saturate(0.9) contrast(1.08) brightness(0.82);
+    }
+
+    .aircraft-memory-shot.t6c img {
+      object-position: 78% 24%;
+      transform: scale(2.45);
+      transform-origin: 86% 34%;
+    }
+
+    .aircraft-memory-shot.ct4e img {
+      object-position: 72% 48%;
+      transform: scale(2.2);
+      transform-origin: 78% 34%;
+    }
+
+    .aircraft-memory-shot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(5, 9, 8, 0.05), rgba(5, 9, 8, 0.38)),
+        linear-gradient(90deg, rgba(255, 106, 26, 0.16), transparent 24%, transparent 72%, rgba(69, 230, 255, 0.14)),
+        radial-gradient(circle at 72% 36%, rgba(69, 230, 255, 0.12), transparent 38%);
+      pointer-events: none;
+    }
+
+    .main-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+    }
+
+    .sidebar {
+      padding: 34px;
+      background:
+        linear-gradient(180deg, rgba(99, 116, 81, 0.22), transparent 52%),
+        rgba(7, 12, 10, 0.7);
+      border-right: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .content {
+      padding: 34px 40px 42px;
+    }
+
+    .section {
+      margin-bottom: 31px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: center;
+      margin: 0 0 17px;
+      color: var(--ink);
+      font-family: "Inter", "Noto Sans Thai", sans-serif;
+      font-size: clamp(1.38rem, 3.2vw, 2.45rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 1px;
+      background: linear-gradient(90deg, rgba(69, 230, 255, 0.55), rgba(255, 106, 26, 0.1));
+    }
+
+    .sidebar .section-title {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      font-size: 1.45rem;
+    }
+
+    .sidebar .section-title::after {
+      width: 84px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+    }
+
+    .contact-list,
+    .skill-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: center;
+      min-height: 48px;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.046);
+      color: var(--soft);
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item svg {
+      width: 20px;
+      height: 20px;
+      color: var(--orange-2);
+    }
+
+    .contact-item b {
+      display: block;
+      color: var(--muted);
+      font-family: "Inter", sans-serif;
+      font-size: 0.67rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .contact-item span {
+      display: block;
+      font-size: 0.94rem;
+      line-height: 1.25;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline li {
+      position: relative;
+      padding: 13px 14px 13px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 14px;
+      bottom: 14px;
+      width: 3px;
+      background: var(--cyan);
+      box-shadow: 0 0 16px rgba(69, 230, 255, 0.45);
+    }
+
+    .timeline b {
+      display: block;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .timeline span {
+      color: var(--muted);
+      font-family: "Inter", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .skill-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill-list li {
+      min-height: 46px;
+      padding: 9px 10px;
+      border: 1px solid rgba(69, 230, 255, 0.17);
+      border-radius: var(--radius);
+      background: rgba(69, 230, 255, 0.055);
+      color: var(--soft);
+      font-size: 0.86rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .signal-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 268px;
+      display: grid;
+      align-content: end;
+      padding: 0;
+      border: 1px solid rgba(255, 106, 26, 0.26);
+      border-radius: var(--radius);
+      background:
+        repeating-linear-gradient(135deg, rgba(255, 106, 26, 0.09) 0 8px, transparent 8px 16px),
+        rgba(255, 106, 26, 0.075);
+    }
+
+    .signal-panel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 48% 42%;
+      filter: saturate(0.85) contrast(1.08) brightness(0.72);
+    }
+
+    .signal-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(5, 8, 7, 0.1), rgba(5, 8, 7, 0.85)),
+        repeating-linear-gradient(0deg, rgba(69, 230, 255, 0.08) 0 1px, transparent 1px 7px);
+    }
+
+    .signal-copy {
+      position: relative;
+      z-index: 2;
+      padding: 14px;
+    }
+
+    .signal-copy strong {
+      display: block;
+      color: var(--orange-2);
+      font-family: "Inter", sans-serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .signal-panel p {
+      margin: 0;
+      color: var(--soft);
+      font-size: 0.94rem;
+      font-weight: 600;
+      line-height: 1.58;
+    }
+
+    .ops-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .ops-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 18px;
+      align-items: start;
+      min-height: 118px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.055);
+      overflow: hidden;
+    }
+
+    .ops-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(255, 106, 26, 0.14), transparent 38%);
+      opacity: 0.72;
+    }
+
+    .ops-code {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      min-height: 82px;
+      border: 1px solid rgba(255, 106, 26, 0.36);
+      border-radius: var(--radius);
+      color: var(--orange-2);
+      background: rgba(0, 0, 0, 0.24);
+      font-family: "Inter", sans-serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .ops-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ops-copy h3 {
+      margin: 0 0 7px;
+      color: var(--ink);
+      font-size: 1.16rem;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .ops-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .mission-board {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mission-tile {
+      min-height: 142px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(69, 230, 255, 0.08), transparent),
+        rgba(255, 255, 255, 0.046);
+    }
+
+    .mission-tile b {
+      display: block;
+      color: var(--cyan);
+      font-family: "Inter", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .mission-tile strong {
+      display: block;
+      margin-top: 12px;
+      color: var(--ink);
+      font-size: 1.28rem;
+      font-weight: 900;
+      line-height: 1.12;
+    }
+
+    .mission-tile span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .status-panel {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 78% 12%, rgba(255, 106, 26, 0.16), transparent 22rem),
+        linear-gradient(180deg, rgba(69, 230, 255, 0.07), transparent),
+        rgba(255, 255, 255, 0.052);
+      overflow: hidden;
+    }
+
+    .status-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 38px),
+        repeating-linear-gradient(0deg, rgba(69,230,255,0.05) 0 1px, transparent 1px 11px);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .status-row {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 138px 1fr 58px;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .status-name,
+    .status-value {
+      color: var(--ink);
+      font-family: "Inter", sans-serif;
+      font-size: 0.86rem;
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .status-value {
+      color: var(--orange-2);
+      text-align: right;
+    }
+
+    .status-meter {
+      position: relative;
+      overflow: hidden;
+      height: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.07), transparent),
+        rgba(0, 0, 0, 0.28);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.28);
+    }
+
+    .status-fill {
+      width: var(--value);
+      height: 100%;
+      border-right: 1px solid rgba(255, 255, 255, 0.42);
+      background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.18) 0 8px, transparent 8px 14px),
+        linear-gradient(90deg, var(--accent), var(--orange));
+      box-shadow: 0 0 18px color-mix(in srgb, var(--accent), transparent 35%);
+    }
+
+    .blank-section {
+      min-height: 150px;
+      margin-bottom: 0;
+    }
+
+    .tactical-decor {
+      display: grid;
+      grid-template-columns: 1fr 0.82fr;
+      gap: 14px;
+    }
+
+    .hud-panel,
+    .patch-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 50% 44%, rgba(69, 230, 255, 0.14), transparent 24%),
+        linear-gradient(180deg, rgba(69, 230, 255, 0.07), transparent),
+        rgba(255, 255, 255, 0.046);
+    }
+
+    .hud-panel::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(69, 230, 255, 0.25);
+      border-radius: 50%;
+      box-shadow:
+        inset 0 0 0 48px rgba(69, 230, 255, 0.025),
+        0 0 34px rgba(69, 230, 255, 0.09);
+    }
+
+    .hud-panel::after {
+      content: "T-6C";
+      position: absolute;
+      left: 22px;
+      bottom: 18px;
+      color: rgba(246, 243, 231, 0.12);
+      font-family: "Inter", sans-serif;
+      font-size: clamp(4rem, 8vw, 6.4rem);
+      font-weight: 900;
+      line-height: 0.8;
+    }
+
+    .hud-reticle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(255, 176, 58, 0.58);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hud-reticle::before,
+    .hud-reticle::after {
+      content: "";
+      position: absolute;
+      background: rgba(69, 230, 255, 0.58);
+    }
+
+    .hud-reticle::before {
+      left: 50%;
+      top: -34px;
+      width: 1px;
+      height: 218px;
+    }
+
+    .hud-reticle::after {
+      left: -34px;
+      top: 50%;
+      width: 218px;
+      height: 1px;
+    }
+
+    .hud-label {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      max-width: 18ch;
+      color: var(--soft);
+      font-family: "Inter", sans-serif;
+      font-size: 0.8rem;
+      font-weight: 900;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .patch-panel {
+      display: grid;
+      align-content: end;
+      padding: 18px;
+      background:
+        linear-gradient(145deg, rgba(255, 106, 26, 0.18), transparent 42%),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 12px),
+        rgba(255, 255, 255, 0.05);
+    }
+
+    .patch-panel::before {
+      content: "";
+      position: absolute;
+      right: -42px;
+      top: -46px;
+      width: 190px;
+      height: 190px;
+      border: 1px solid rgba(255, 176, 58, 0.3);
+      border-radius: 50%;
+    }
+
+    .patch-panel b {
+      color: var(--cyan);
+      font-family: "Inter", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .patch-panel strong {
+      display: block;
+      margin-top: 9px;
+      color: var(--ink);
+      font-family: "Inter", sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .patch-panel span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .quote-wide {
+      position: relative;
+      padding: 22px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 106, 26, 0.13), transparent 28%),
+        rgba(255, 255, 255, 0.055);
+    }
+
+    .quote-wide p {
+      margin: 0;
+      color: var(--soft);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 600;
+      line-height: 1.85;
+    }
+
+    .footer-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--muted);
+      font-family: "Inter", "Noto Sans Thai", sans-serif;
+      font-size: 0.77rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .body-light {
+      color-scheme: light;
+      --bg: #f3f0e7;
+      --bg-2: #e6e1d6;
+      --panel: rgba(255, 255, 255, 0.76);
+      --panel-solid: #ffffff;
+      --line: rgba(24, 53, 52, 0.16);
+      --ink: #111712;
+      --muted: #59645b;
+      --soft: #263229;
+      --olive: #7e8e5b;
+      --olive-2: #546436;
+      --orange: #e84b10;
+      --orange-2: #a83b0e;
+      --cyan: #007f93;
+      --red: #c91e42;
+      --shadow: rgba(27, 36, 31, 0.18);
+    }
+
+    .body-light {
+      background:
+        radial-gradient(circle at 12% 10%, rgba(232, 75, 16, 0.16), transparent 23rem),
+        radial-gradient(circle at 92% 4%, rgba(0, 127, 147, 0.13), transparent 20rem),
+        linear-gradient(135deg, #e8e4da 0%, #f7f4ed 52%, #ded8cb 100%);
+    }
+
+    .body-light .resume-shell {
+      background:
+        linear-gradient(118deg, rgba(232, 75, 16, 0.1), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.75), transparent 26%),
+        linear-gradient(145deg, #fbfaf4 0%, #efeadd 50%, #e7e0d1 100%);
+    }
+
+    .body-light .photo-bay,
+    .body-light .sidebar {
+      background:
+        linear-gradient(155deg, rgba(232, 75, 16, 0.18), transparent 44%),
+        rgba(234, 230, 217, 0.9);
+    }
+
+    @keyframes radarSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes glitchPulse {
+      0%, 92%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+      }
+      94% {
+        transform: translate(1px, -1px);
+        filter: saturate(1.25);
+      }
+      96% {
+        transform: translate(-2px, 1px);
+        filter: hue-rotate(8deg);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-bay {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      }
+
+      .portrait-frame {
+        max-width: 410px;
+        margin-inline: auto;
+      }
+
+      .hero-grid,
+      .mission-board,
+      .tactical-decor {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-wrap {
+        width: min(100% - 18px, 1180px);
+        margin-bottom: 28px;
+      }
+
+      .control-dock {
+        padding: 8px;
+      }
+
+      .control-bar {
+        width: 100%;
+      }
+
+      .icon-button,
+      .upload-button {
+        flex: 1 1 132px;
+        min-width: 0;
+      }
+
+      .photo-bay,
+      .hero-copy,
+      .sidebar,
+      .content {
+        padding: 22px;
+      }
+
+      .quick-stats,
+      .skill-list {
+        grid-template-columns: 1fr;
+      }
+
+      .ops-card {
+        grid-template-columns: 1fr;
+      }
+
+      .status-row {
+        grid-template-columns: 1fr auto;
+      }
+
+      .status-meter {
+        grid-column: 1 / -1;
+      }
+
+      .section-title {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title::after {
+        width: 96px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 8mm;
+      }
+
+      body {
+        background: #0a1110 !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      body::before,
+      body::after,
+      .control-dock {
+        display: none !important;
+      }
+
+      .page-wrap {
+        width: 100%;
+        margin: 0;
+        perspective: none;
+      }
+
+      .resume-shell {
+        border-radius: 0;
+        box-shadow: none;
+        transform: none !important;
+      }
+
+      .resume-shell::before {
+        animation: none;
+      }
+
+      .hero {
+        min-height: 360px;
+        grid-template-columns: 34% 66%;
+      }
+
+      .main-grid {
+        grid-template-columns: 33% 67%;
+      }
+
+      .photo-bay,
+      .hero-copy,
+      .sidebar,
+      .content {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 4.6rem;
+      }
+
+      .section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="control-dock">
+    <div class="control-bar" aria-label="resume controls">
+      <button class="icon-button" type="button" id="themeToggle" title="Toggle visual mode">
+        <i data-lucide="radar"></i>
+        <span>Night Ops</span>
+      </button>
+      <label class="upload-button" title="Change portrait">
+        <i data-lucide="image-up"></i>
+        <span>Photo</span>
+        <input class="sr-only" id="photoInput" type="file" accept="image/*">
+      </label>
+      <button class="icon-button" type="button" id="printBtn" title="Print resume">
+        <i data-lucide="printer"></i>
+        <span>Print</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="page-wrap">
+    <article class="resume-shell" id="resumeShell">
+      <section class="hero" aria-labelledby="profileName">
+        <aside class="photo-bay">
+          <div class="classification">RTAF Flight Resume</div>
+          <div class="portrait-frame">
+            <img id="portrait" src="profile.jpg" alt="เรืออากาศตรีคมชาญ จันทชาติ">
+            <div class="photo-fallback" id="photoFallback" aria-hidden="true">
+              <div class="fallback-mark">
+                <strong>KC</strong>
+                <span>Portrait bay ready for flight photo</span>
+              </div>
+            </div>
+            <div class="frame-hud"></div>
+          </div>
+
+          <div class="quick-stats" aria-label="Quick profile stats">
+            <div class="stat">
+              <b>68</b>
+              <span>Air Cadet Class</span>
+            </div>
+            <div class="stat">
+              <b>61</b>
+              <span>AFAPS 61</span>
+            </div>
+            <div class="stat">
+              <b>T-6C</b>
+              <span>Aircraft Flown</span>
+            </div>
+          </div>
+        </aside>
+
+        <div class="hero-copy">
+          <div class="top-row">
+            <span class="mission-id">Mission ID: KC-157-68-2</span>
+            <span class="status-chip"><span class="status-dot"></span>Ready for next sortie</span>
+          </div>
+
+          <div class="rank">เรืออากาศตรี</div>
+          <h1 id="profileName">
+            <span class="glitch">คมชาญ</span><br>จันทชาติ
+            <span class="latin">KOMCHAN JANTACHAT</span>
+          </h1>
+
+          <div class="role-line" aria-label="Profile tags">
+            <span class="pill hot">Fighter Mood</span>
+            <span class="pill">T-6C Visual Theme</span>
+            <span class="pill">Pilot Profile</span>
+            <span class="pill">Gen Z HUD</span>
+          </div>
+
+          <div class="hero-grid">
+            <div class="quote-card">
+              <span class="eyebrow">Favorite Line</span>
+              <p>เมื่อออกจากพายุมาแล้ว คุณจะไม่ใช่คนเดิมที่เดินเข้าไปในนั้น และนั่นคือคุณค่าของพายุ</p>
+            </div>
+
+            <div class="aircraft-card" aria-label="Aircraft Memory">
+              <div class="aircraft-memory-shot t6c">
+                <img src="KABIKON.png" alt="T-6C aircraft">
+              </div>
+              <div class="aircraft-memory-shot ct4e">
+                <img src="profile.jpg" alt="CT-4E aircraft">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="main-grid">
+        <aside class="sidebar">
+          <section class="section">
+            <h2 class="section-title">Contact</h2>
+            <ul class="contact-list">
+              <li class="contact-item">
+                <i data-lucide="phone"></i>
+                <span><b>Phone</b>0887901621</span>
+              </li>
+              <li class="contact-item">
+                <i data-lucide="mail"></i>
+                <span><b>Email</b>dewkomchan0610@gmail.com</span>
+              </li>
+              <li class="contact-item">
+                <i data-lucide="map-pin"></i>
+                <span><b>Base</b>Royal Thai Air Force track</span>
+              </li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Education</h2>
+            <ul class="timeline">
+              <li>
+                <span>Foundation</span>
+                <b>โรงเรียนหาดใหญ่วิทยาลัย</b>
+              </li>
+              <li>
+                <span>AFAPS 61</span>
+                <b>AFAPS 61</b>
+              </li>
+              <li>
+                <span>Air Cadet 68</span>
+                <b>โรงเรียนนายเรืออากาศ รุ่น 68</b>
+              </li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Core Traits</h2>
+            <ul class="skill-list">
+              <li>Leadership</li>
+              <li>Airmanship</li>
+              <li>Flight Discipline</li>
+              <li>Brief / Debrief</li>
+              <li>Mission Focus</li>
+              <li>Resilience</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Signal</h2>
+            <div class="signal-panel">
+              <img src="KABIKON.png" alt="KABIKON T-6C pilot artwork">
+              <div class="signal-copy">
+                <strong>KABIKON</strong>
+                <p>" KABIKON "</p>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        <section class="content">
+          <section class="section">
+            <h2 class="section-title">Ops Log</h2>
+            <div class="ops-grid">
+              <article class="ops-card">
+                <div class="ops-code">LDR</div>
+                <div class="ops-copy">
+                  <h3>หน.ร้อย.2 พัน.2 กรม นนอ.รอ.รร.นนก.</h3>
+                  <p>รับผิดชอบงานนำหน่วย ดูแลความพร้อม ระเบียบวินัย และการประสานงานในระดับกองร้อย ด้วยแนวคิดแบบ mission-first.</p>
+                </div>
+              </article>
+
+              <article class="ops-card">
+                <div class="ops-code">157</div>
+                <div class="ops-copy">
+                  <h3>น.โบนเนอร์ ศบ.157-68-2</h3>
+                  <p>ดูแลความเรียบร้อยทางการเงิน ที่โดนปรับโดยครูการบิน.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Status</h2>
+            <div class="status-panel">
+              <div class="status-row">
+                <span class="status-name">Skill</span>
+                <div class="status-meter" aria-label="Skill 50 percent">
+                  <div class="status-fill" style="--value: 50%; --accent: var(--cyan);"></div>
+                </div>
+                <span class="status-value">50%</span>
+              </div>
+              <div class="status-row">
+                <span class="status-name">Knowledge</span>
+                <div class="status-meter" aria-label="Knowledge 50 percent">
+                  <div class="status-fill" style="--value: 50%; --accent: var(--olive-2);"></div>
+                </div>
+                <span class="status-value">50%</span>
+              </div>
+              <div class="status-row">
+                <span class="status-name">Intention</span>
+                <div class="status-meter" aria-label="Intention 100 percent">
+                  <div class="status-fill" style="--value: 100%; --accent: var(--orange-2);"></div>
+                </div>
+                <span class="status-value">100%</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Quote</h2>
+            <blockquote class="quote-wide">
+              <p>"... และเมื่อพายุจบสิ้นลง คุณจะจำไม่ได้ว่าผ่านมันมาได้ยังไง รอดชีวิตมาได้ยังไง จริงๆ แล้ว คุณไม่แน่ใจกระทั่งว่าพายุจบสิ้นลงแล้วหรือยัง แต่มีสิ่งหนึ่งที่คุณมั่นใจ เมื่อคุณออกจากพายุนั้นมาแล้ว คุณจะไม่ใช่คนเดิม คนที่เดินเข้าไปในนั้น และนั่นคือคุณค่าของพายุ"</p>
+            </blockquote>
+          </section>
+
+          <section class="section blank-section" aria-hidden="true"></section>
+
+          <div class="footer-strip">
+            <span>KOMCHAN JANTACHAT</span>
+            <span id="stamp">Resume Mockup</span>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    const body = document.body;
+    const shell = document.getElementById("resumeShell");
+    const portrait = document.getElementById("portrait");
+    const fallback = document.getElementById("photoFallback");
+    const input = document.getElementById("photoInput");
+    const stamp = document.getElementById("stamp");
+
+    function setPortraitVisible(isVisible) {
+      portrait.classList.toggle("is-hidden", !isVisible);
+      fallback.style.display = isVisible ? "none" : "grid";
+    }
+
+    portrait.addEventListener("load", () => setPortraitVisible(true));
+    portrait.addEventListener("error", () => setPortraitVisible(false));
+
+    const storedPortrait = localStorage.getItem("komchan-resume-portrait");
+    if (storedPortrait) {
+      portrait.src = storedPortrait;
+    }
+
+    input.addEventListener("change", (event) => {
+      const [file] = event.target.files || [];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        const result = reader.result;
+        portrait.src = result;
+        localStorage.setItem("komchan-resume-portrait", result);
+      });
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      body.classList.toggle("body-light");
+    });
+
+    document.getElementById("printBtn").addEventListener("click", () => {
+      window.print();
+    });
+
+    const formatter = new Intl.DateTimeFormat("th-TH", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+    stamp.textContent = `Resume Mockup | Updated ${formatter.format(new Date())}`;
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      shell.addEventListener("pointermove", (event) => {
+        const rect = shell.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        shell.style.setProperty("--tilt-y", `${x * 1.2}deg`);
+        shell.style.setProperty("--tilt-x", `${y * -1.2}deg`);
+      });
+
+      shell.addEventListener("pointerleave", () => {
+        shell.style.setProperty("--tilt-y", "0deg");
+        shell.style.setProperty("--tilt-x", "0deg");
+      });
+    }
+
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
